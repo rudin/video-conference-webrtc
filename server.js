@@ -36,13 +36,13 @@ var server = app.listen(serverPort, function() {
   console.log("Express is running on port " + serverPort)
 })
 
-var io = require("socket.io").listen(server)
+var io = require("socket.io")(server)
 
 ////////////////////////////////////////////////
 // EVENT HANDLERS
 ////////////////////////////////////////////////
 
-io.sockets.on("connection", function(socket) {
+io.on("connection", function(socket) {
   function log() {
     var array = [">>> Message from server: "]
     for (var i = 0; i < arguments.length; i++) {
