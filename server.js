@@ -11,7 +11,7 @@ var express = require("express")
 var path = require("path")
 
 var serverPort = process.env.PORT || 1337
-var serverIpAddress = process.env.OPENSHIFT_NODEJS_IP || "localhost"
+var serverIpAddress = "vid-conf-app.herokuapp.com"
 var socketIoServer = "vid-conf-app.herokuapp.com"
 
 ////////////////////////////////////////////////
