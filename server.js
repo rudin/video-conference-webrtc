@@ -12,14 +12,14 @@ var path = require("path")
 
 var serverPort = process.env.PORT || 1337
 // var serverIpAddress = "vid-conf-app.herokuapp.com"
-// var socketIoServer = "vid-conf-app.herokuapp.com"
+var socketIoServer = "vid-conf-app.herokuapp.com"
 
 ////////////////////////////////////////////////
 // SETUP SERVER
 ////////////////////////////////////////////////
 
 var app = express()
-require("./router")(app)
+require("./router")(app, socketIoServer)
 
 // Static content (css, js, .png, etc) is placed in /public
 app.use(express.static(__dirname + "/public"))
