@@ -11,15 +11,15 @@ var express = require("express")
 var path = require("path")
 
 var serverPort = process.env.PORT || 1337
-var serverIpAddress = "vid-conf-app.herokuapp.com"
-var socketIoServer = "vid-conf-app.herokuapp.com"
+// var serverIpAddress = "vid-conf-app.herokuapp.com"
+// var socketIoServer = "vid-conf-app.herokuapp.com"
 
 ////////////////////////////////////////////////
 // SETUP SERVER
 ////////////////////////////////////////////////
 
 var app = express()
-require("./router")(app, socketIoServer)
+require("./router")(app)
 
 // Static content (css, js, .png, etc) is placed in /public
 app.use(express.static(__dirname + "/public"))
@@ -32,7 +32,7 @@ app.set("view engine", "ejs")
 
 // Tell Server that we are actually rendering HTML files through EJS.
 app.engine("html", require("ejs").renderFile)
-var server = app.listen(serverPort, serverIpAddress, function() {
+var server = app.listen(serverPort, function() {
   console.log("Express is running on port " + serverPort)
 })
 
